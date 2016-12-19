@@ -205,7 +205,7 @@ end
 coreo_aws_advisor_s3 "advise-s3" do
   action :advise
   alerts ${AUDIT_AWS_S3_ALERT_LIST}
-#  regions ${AUDIT_AWS_S3_REGIONS}  
+  regions ${AUDIT_AWS_S3_REGIONS}  
   global_objective "buckets"
   bucket_name /.*/
   global_modifier({:bucket_name => "buckets.name"})
