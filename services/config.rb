@@ -1,4 +1,21 @@
 
+coreo_aws_advisor_alert "s3-inventory" do
+  action :define
+  service :s3
+  link "http://kb.cloudcoreo.com/mydoc_elb-inventory.html"
+  include_violations_in_count false
+  display_name "S3 Bucket Inventory"
+  description "This rule performs an inventory on all S3 buckets in the target AWS account."
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["buckets"]
+  audit_objects ["object"]
+  operators ["=~"]
+  alert_when [//]
+  id_map "modifiers.bucket_name"
+end
+
 coreo_aws_advisor_alert "s3-allusers-write" do
   action :define
   service :s3
