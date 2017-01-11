@@ -17,6 +17,7 @@ variables:
       - s3-world-open-policy-put
       - s3-world-open-policy-all
       - s3-only-ip-based-policy
+      - s3-inventory
   AUDIT_AWS_S3_ALERT_RECIPIENT:
     description: "Enter the email address(es) that will receive rollup report and json"
     required: true
