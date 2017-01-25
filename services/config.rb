@@ -11,10 +11,10 @@ coreo_aws_advisor_alert "s3-allusers-write" do
   category "Dataloss"
   suggested_action "Remove the entry from the bucket permissions that allows everyone to write."
   level "Critical"
-  objectives    ["bucket_acl","bucket_acl"]
-  audit_objects ["grants.grantee.uri", "grants.permission"]
-  operators     ["=~", "=="]
-  alert_when    [/AllUsers/i, "write"]
+  objectives    ["bucket_acl","bucket_acl","bucket_location"]
+  audit_objects ["grants.grantee.uri", "grants.permission", "location_constraint"]
+  operators     ["=~", "==", "=~"]
+  alert_when    [/AllUsers/i, "write", //]
   id_map "modifiers.bucket_name"
 end
 
